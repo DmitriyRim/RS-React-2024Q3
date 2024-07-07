@@ -1,7 +1,7 @@
 import { Component, ReactNode } from 'react'
 
 interface Props {
-    children: ReactNode;
+    children: ReactNode
 }
 interface State {
     hasError: boolean
@@ -18,15 +18,21 @@ export class ErrorBoundary extends Component<Props, State> {
         return { hasError: true }
     }
     showError = () => {
-        this.setState({hasError: true})
+        this.setState({ hasError: true })
     }
     render() {
         if (this.state.hasError) {
             return <h1>Something went wrong.</h1>
         }
-        return <>
-            <input type='submit' value={'Error Boundary'} onClick={this.showError} />
-            {this.props.children}
-        </>
+        return (
+            <>
+                <input
+                    type="submit"
+                    value={'Error Boundary'}
+                    onClick={this.showError}
+                />
+                {this.props.children}
+            </>
+        )
     }
 }

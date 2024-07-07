@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import './index.css'
 
 interface Props {
     getDate: (query: string) => Promise<void>
@@ -23,20 +24,7 @@ export class Search extends Component<Props, State> {
 
     handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({ searchQuery: event.target.value })
-    }
-
-    render() {
-        return (
-            <form onSubmit={this.handleSubmit}>
-                <input
-                    type="search"
-                    name="search"
-                    value={this.state.searchQuery}
-                    onChange={this.handleChange}
-                />
-                <input type="submit" value="Search" />
-            </form>
-        )
+        console.log(event.target.value)
     }
 
     componentDidMount(): void {
@@ -48,5 +36,19 @@ export class Search extends Component<Props, State> {
                 searchQuery: query,
             })
         }
+    }
+
+    render() {
+        return (
+            <form onSubmit={this.handleSubmit} className="search">
+                <input
+                    type="search"
+                    name="search"
+                    value={this.state.searchQuery}
+                    onChange={this.handleChange}
+                />
+                <input type="submit" value="Search" />
+            </form>
+        )
     }
 }

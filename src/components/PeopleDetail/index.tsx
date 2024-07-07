@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import './index.css'
 
 interface Props {
     data: {
@@ -26,7 +27,7 @@ export class PeoleDetail extends Component<Props> {
         const peopleData = this.props.data
 
         return (
-            <div>
+            <div className="details">
                 <h4>{peopleData.name}</h4>
                 <ul>
                     <li>Gender - {peopleData.gender}</li>
