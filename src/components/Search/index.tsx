@@ -43,6 +43,7 @@ export class Search extends Component<Props, State> {
         const query = localStorage.getItem('searchQuery')
 
         if (query) {
+            this.props.getDate(query)
             this.setState({
                 searchQuery: query,
             })
