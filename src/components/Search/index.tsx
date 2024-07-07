@@ -20,6 +20,7 @@ export class Search extends Component<Props, State> {
         event.preventDefault()
         localStorage.setItem('searchQuery', this.state.searchQuery)
         this.props.getDate(this.state.searchQuery)
+        console.log(this.state.searchQuery)
     }
 
     handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,10 +32,12 @@ export class Search extends Component<Props, State> {
         const query = localStorage.getItem('searchQuery')
 
         if (query) {
-            this.props.getDate(query)
             this.setState({
                 searchQuery: query,
             })
+            this.props.getDate(query)
+        } else {
+            this.props.getDate('')
         }
     }
 
